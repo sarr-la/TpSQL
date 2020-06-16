@@ -1,0 +1,642 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 6.0.7.3 (Linux)"/>
+	<meta name="created" content="2020-06-15T10:01:51.102225832"/>
+	<meta name="changed" content="2020-06-16T00:13:55.627799311"/>
+	<style type="text/css">
+		@page { margin: 2cm }
+		p { margin-bottom: 0.25cm; line-height: 115% }
+		pre.cjk { font-family: "DejaVu Sans Mono", monospace }
+	</style>
+</head>
+<body lang="fr-FR" dir="ltr">
+<pre class="western"><font color="#8ae234"><b>yakhine@yakhine-Aspire-ES1-711</b></font>:<font color="#729fcf"><b>~</b></font>$ sudo -s
+[sudo] Mot de passe de yakhine&nbsp;: 
+Désolé, essayez de nouveau.
+[sudo] Mot de passe de yakhine&nbsp;: 
+Désolé, essayez de nouveau.
+[sudo] Mot de passe de yakhine&nbsp;: 
+sudo: 3 saisies de mots de passe incorrectes
+<font color="#8ae234"><b>yakhine@yakhine-Aspire-ES1-711</b></font>:<font color="#729fcf"><b>~</b></font>$ clear
+
+<font color="#8ae234"><b>yakhine@yakhine-Aspire-ES1-711</b></font>:<font color="#729fcf"><b>~</b></font>$ sudo -s
+[sudo] Mot de passe de yakhine&nbsp;: 
+<font color="#8ae234"><b>root@yakhine-Aspire-ES1-711</b></font>:<font color="#729fcf"><b>~</b></font># mysql -u root -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 20
+Server version: 5.7.30-0ubuntu0.18.04.1 (Ubuntu)
+
+Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type &amp;apos;help;&amp;apos; or &amp;apos;\h&amp;apos; for help. Type &amp;apos;\c&amp;apos; to clear the current input statement.
+
+mysql&gt; create database gestion_bancaire;
+Query OK, 1 row affected (1.91 sec)
+
+mysql&gt; use gestion_bancaire;
+Database changed
+mysql&gt; create table Region (idR int(11) primary key not null auto_increment,
+    -&gt; NomR varchar(30));
+Query OK, 0 rows affected (3.94 sec)
+
+mysql&gt; create table Agence (idA int(11) primary key not null auto_increment,
+    -&gt; NomA varchar(30));
+Query OK, 0 rows affected (0.95 sec)
+
+mysql&gt; show tables
+    -&gt; show tables;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &amp;apos;show tables&amp;apos; at line 2
+mysql&gt; use gestion_bancaire;
+Database changed
+mysql&gt; show tables;
++----------------------------+
+| Tables_in_gestion_bancaire |
++----------------------------+
+| Agence                     |
+| Region                     |
++----------------------------+
+2 rows in set (0.04 sec)
+
+mysql&gt; show colomns from Region
+    -&gt; show colomns from Region;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &amp;apos;colomns from Region
+show colomns from Region&amp;apos; at line 1
+mysql&gt; show columns from Region;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| idR   | int(11)     | NO   | PRI | NULL    | auto_increment |
+| NomR  | varchar(30) | YES  |     | NULL    |                |
++-------+-------------+------+-----+---------+----------------+
+2 rows in set (0.41 sec)
+
+mysql&gt; show columns from Agence;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| idA   | int(11)     | NO   | PRI | NULL    | auto_increment |
+| NomA  | varchar(30) | YES  |     | NULL    |                |
++-------+-------------+------+-----+---------+----------------+
+2 rows in set (0.11 sec)
+
+mysql&gt; use gestion_bancaire
+Database changed
+mysql&gt; create table Employee (idE int(11) primary key not null auto_increment,
+    -&gt; NomE varchar(50),
+    -&gt; PrenomE varchar(50),
+    -&gt; AdresseE varchar(50),
+    -&gt; EmailE varchar(50),
+    -&gt; TelE int(11),
+    -&gt; PasswordE varchar(50));
+Query OK, 0 rows affected (0.93 sec)
+
+mysql&gt; show columns from Employee;
++-----------+-------------+------+-----+---------+----------------+
+| Field     | Type        | Null | Key | Default | Extra          |
++-----------+-------------+------+-----+---------+----------------+
+| idE       | int(11)     | NO   | PRI | NULL    | auto_increment |
+| NomE      | varchar(50) | YES  |     | NULL    |                |
+| PrenomE   | varchar(50) | YES  |     | NULL    |                |
+| AdresseE  | varchar(50) | YES  |     | NULL    |                |
+| EmailE    | varchar(50) | YES  |     | NULL    |                |
+| TelE      | int(11)     | YES  |     | NULL    |                |
+| PasswordE | varchar(50) | YES  |     | NULL    |                |
++-----------+-------------+------+-----+---------+----------------+
+7 rows in set (0.20 sec)
+
+mysql&gt; create table Profil (idP int(11) primary key not null auto_increment,
+    -&gt; NomP varchar(50));
+Query OK, 0 rows affected (0.35 sec)
+
+mysql&gt; show columns from Profil;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| idP   | int(11)     | NO   | PRI | NULL    | auto_increment |
+| NomP  | varchar(50) | YES  |     | NULL    |                |
++-------+-------------+------+-----+---------+----------------+
+2 rows in set (0.02 sec)
+
+mysql&gt; create table Employeur (numId int(11) primary key not null auto_increment,
+    -&gt; RaisonSocial varchar(50),
+    -&gt; Nom varchar(50),
+    -&gt; Adresse varchar(50));
+Query OK, 0 rows affected (0.33 sec)
+
+mysql&gt; show columns from Employeur;
++--------------+-------------+------+-----+---------+----------------+
+| Field        | Type        | Null | Key | Default | Extra          |
++--------------+-------------+------+-----+---------+----------------+
+| numId        | int(11)     | NO   | PRI | NULL    | auto_increment |
+| RaisonSocial | varchar(50) | YES  |     | NULL    |                |
+| Nom          | varchar(50) | YES  |     | NULL    |                |
+| Adresse      | varchar(50) | YES  |     | NULL    |                |
++--------------+-------------+------+-----+---------+----------------+
+4 rows in set (0.04 sec)
+
+mysql&gt; show tables;
++----------------------------+
+| Tables_in_gestion_bancaire |
++----------------------------+
+| Agence                     |
+| Employee                   |
+| Employeur                  |
+| Profil                     |
+| Region                     |
++----------------------------+
+5 rows in set (0.31 sec)
+
+mysql&gt; create table Compte (idC int(11) primary key not null auto_increment,
+    -&gt; CleRib varchar(50),
+    -&gt; Etat varchar(50));
+Query OK, 0 rows affected (1.04 sec)
+
+mysql&gt; show columns from Compte;
++--------+-------------+------+-----+---------+----------------+
+| Field  | Type        | Null | Key | Default | Extra          |
++--------+-------------+------+-----+---------+----------------+
+| idC    | int(11)     | NO   | PRI | NULL    | auto_increment |
+| CleRib | varchar(50) | YES  |     | NULL    |                |
+| Etat   | varchar(50) | YES  |     | NULL    |                |
++--------+-------------+------+-----+---------+----------------+
+3 rows in set (0.19 sec)
+
+mysql&gt; sow tables;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &amp;apos;sow tables&amp;apos; at line 1
+mysql&gt; show tales;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &amp;apos;tales&amp;apos; at line 1
+mysql&gt; show tables;
++----------------------------+
+| Tables_in_gestion_bancaire |
++----------------------------+
+| Agence                     |
+| Compte                     |
+| Employee                   |
+| Employeur                  |
+| Profil                     |
+| Region                     |
++----------------------------+
+6 rows in set (0.00 sec)
+
+mysql&gt; mysql&gt; create table Client (idCl int(11) primary key null auto_increment, 
+    -&gt; Nom varchar(50),
+    -&gt; Prenom varchar(50),
+    -&gt; Adresse varchar(50),
+    -&gt; Email varchar(50),
+    -&gt; Tel int(11),
+    -&gt; password varchar(12),
+    -&gt; Salaire double(15));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &amp;apos;nullull auto_increment,
+Nom varchar(50),
+Prenom varchar(50),
+Adresse varchar(50)&amp;apos; at line 1
+mysql&gt; create table Client (idCl int(11) primary key not null auto_increment, 
+    -&gt; Nom varchar(50),
+    -&gt; Prenom varchar(50),
+    -&gt; Adresse varchar(50),
+    -&gt; Email varchar(50),
+    -&gt; Tel int(11),
+    -&gt; Password varchar(50),
+    -&gt; Salaire double(15));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &amp;apos;))&amp;apos; at line 8
+mysql&gt; Salaire varchar(15));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &amp;apos;Salaire varchar(15))&amp;apos; at line 1
+mysql&gt; create table Client (idCl int(11) primary key not null auto_increment,
+    -&gt; Nom varchar(50),
+    -&gt; Prenom varchar(50),
+    -&gt; Adresse varchar(50),
+    -&gt; Email varchar(50),
+    -&gt; Tel int(11),
+    -&gt; Password varchar(12),
+    -&gt; Salaire vachar(12));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &amp;apos;vachar(12))&amp;apos; at line 8
+mysql&gt; create table Client (idCl int(11) primary key not null auto_increment,
+    -&gt; Nom varchar(50),
+    -&gt; Prenom varchar(50),
+    -&gt; Adresse varchar(50),
+    -&gt; Email varchar(50),
+    -&gt; Tel int(11),
+    -&gt; Password varchar(12),
+    -&gt; Salaire varchar(12));
+Query OK, 0 rows affected (1.51 sec)
+
+mysql&gt; show columns from Client;
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| idCl     | int(11)     | NO   | PRI | NULL    | auto_increment |
+| Nom      | varchar(50) | YES  |     | NULL    |                |
+| Prenom   | varchar(50) | YES  |     | NULL    |                |
+| Adresse  | varchar(50) | YES  |     | NULL    |                |
+| Email    | varchar(50) | YES  |     | NULL    |                |
+| Tel      | int(11)     | YES  |     | NULL    |                |
+| Password | varchar(12) | YES  |     | NULL    |                |
+| Salaire  | varchar(12) | YES  |     | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+8 rows in set (0.21 sec)
+
+mysql&gt; create table Operation (idO int(11) primary key not null auto_increment,
+    -&gt; Montant varchar(50),
+    -&gt; Type varchar(50));
+Query OK, 0 rows affected (0.37 sec)
+
+mysql&gt; show columns from Operation;
++---------+-------------+------+-----+---------+----------------+
+| Field   | Type        | Null | Key | Default | Extra          |
++---------+-------------+------+-----+---------+----------------+
+| idO     | int(11)     | NO   | PRI | NULL    | auto_increment |
+| Montant | varchar(50) | YES  |     | NULL    |                |
+| Type    | varchar(50) | YES  |     | NULL    |                |
++---------+-------------+------+-----+---------+----------------+
+3 rows in set (0.03 sec)
+
+mysql&gt; create table CompteBloque (FraiOuverture int(11),
+    -&gt; Delais int(11),
+    -&gt; date varchar(25));
+Query OK, 0 rows affected (0.87 sec)
+
+mysql&gt; show columns from CompteBloque;
++---------------+-------------+------+-----+---------+-------+
+| Field         | Type        | Null | Key | Default | Extra |
++---------------+-------------+------+-----+---------+-------+
+| FraiOuverture | int(11)     | YES  |     | NULL    |       |
+| Delais        | int(11)     | YES  |     | NULL    |       |
+| date          | varchar(25) | YES  |     | NULL    |       |
++---------------+-------------+------+-----+---------+-------+
+3 rows in set (0.08 sec)
+
+mysql&gt; mysql&gt; create table CompteCourant (agio int(11));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &amp;apos;CompteCourant (agio int(11))&amp;apos; at line 1
+mysql&gt; create table Compte CompteCourant (Agio int(11);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &amp;apos;CompteCourant (Agio int(11)&amp;apos; at line 1
+mysql&gt; create table Compte CompteCourant,
+    -&gt; Agio int(11);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &amp;apos;CompteCourant,
+Agio int(11)&amp;apos; at line 1
+mysql&gt; create table Compte CompteCourant,
+    -&gt; create table  CompteCourant,
+    -&gt; Agio int(11);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &amp;apos;CompteCourant,
+create table  CompteCourant,
+Agio int(11)&amp;apos; at line 1
+mysql&gt; create table  CompteCourant,                                     -&gt; create table Compte CompteCourant, create table  CompteCourant, Agio int(11));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &amp;apos;
+create table Compte CompteCourant, create table  CompteCourant, Agio int(11))&amp;apos; at line 1
+mysql&gt; show tables;
++----------------------------+
+| Tables_in_gestion_bancaire |
++----------------------------+
+| Agence                     |
+| Client                     |
+| Compte                     |
+| CompteBloque               |
+| Employee                   |
+| Employeur                  |
+| Operation                  |
+| Profil                     |
+| Region                     |
++----------------------------+
+9 rows in set (0.09 sec)
+
+mysql&gt; mysql&gt; create table Type (idT int(11),
+    -&gt; Libelle varchar(50));
+Query OK, 0 rows affected (0.44 sec)
+
+mysql&gt; drop Type;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &amp;apos;Type&amp;apos; at line 1
+mysql&gt; Drop table Type;
+ERROR 1051 (42S02): Unknown table &amp;apos;gestion_bancaire.Type&amp;apos;
+mysql&gt; show columns from TypeCliente;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| idT     | int(11)     | YES  |     | NULL    |       |
+| Libelle | varchar(50) | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+2 rows in set (0.05 sec)
+
+mysql&gt; show tables;
++----------------------------+
+| Tables_in_gestion_bancaire |
++----------------------------+
+| Agence                     |
+| Client                     |
+| Compte                     |
+| CompteBloque               |
+| Employee                   |
+| Employeur                  |
+| Operation                  |
+| Profil                     |
+| Region                     |
+| TypeCliente                |
++----------------------------+
+10 rows in set (0.00 sec)
+
+mysql&gt; create table CompteEpargne (FraisOuverture int(11);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &amp;apos;&amp;apos; at line 1
+mysql&gt; create table CompteEpargne (FraisOuverture int(11));
+Query OK, 0 rows affected (0.43 sec)
+
+mysql&gt; show columns from FraisOuverture;
+ERROR 1146 (42S02): Table &amp;apos;gestion_bancaire.FraisOuverture&amp;apos; doesn&amp;apos;t exist
+mysql&gt; show columns from CompteEpargne;
++----------------+---------+------+-----+---------+-------+
+| Field          | Type    | Null | Key | Default | Extra |
++----------------+---------+------+-----+---------+-------+
+| FraisOuverture | int(11) | YES  |     | NULL    |       |
++----------------+---------+------+-----+---------+-------+
+1 row in set (0.03 sec)
+
+mysql&gt; create table CompteCourant,
+    -&gt; Agio int(11));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &amp;apos;
+Agio int(11))&amp;apos; at line 1
+mysql&gt; create table CompteCourant (Agio int(11));
+Query OK, 0 rows affected (0.39 sec)
+
+mysql&gt; show columns from CompteCourant;
++-------+---------+------+-----+---------+-------+
+| Field | Type    | Null | Key | Default | Extra |
++-------+---------+------+-----+---------+-------+
+| Agio  | int(11) | YES  |     | NULL    |       |
++-------+---------+------+-----+---------+-------+
+1 row in set (0.02 sec)
+
+mysql&gt; create table CompteSimple;
+ERROR 1113 (42000): A table must have at least 1 column
+mysql&gt; create table CompteSimple (idCS int(11) primary key null));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &amp;apos;)&amp;apos; at line 1
+mysql&gt; create table CompteSimple 
+    -&gt; ;
+ERROR 1113 (42000): A table must have at least 1 column
+mysql&gt; create table CompteSimple
+    -&gt; idCS int(11) primary key null auto_increment;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &amp;apos;idCS int(11) primary key null auto_increment&amp;apos; at line 2
+mysql&gt; create table CompteSimple (idCS int(11) primary key null auto_increment;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &amp;apos;&amp;apos; at line 1
+mysql&gt; create table CompteSimple (idCS int(11) primary key,
+    -&gt; SansOuverture null);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &amp;apos;null)&amp;apos; at line 2
+mysql&gt; create table CompteSimple (idCS int(11) primary key, 
+    -&gt; SansFrais varchar(null));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &amp;apos;null))&amp;apos; at line 2
+mysql&gt; create table CompteSimple (idCS int(11) primary key, 
+    -&gt; SansFrais varchar(null);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &amp;apos;null)&amp;apos; at line 2
+mysql&gt; Drop table CompteEpargne;
+Query OK, 0 rows affected (6.50 sec)
+
+mysql&gt; Drop table CompteBloque;
+Query OK, 0 rows affected (0.65 sec)
+
+mysql&gt; Drop table CompteCourant;
+Query OK, 0 rows affected (0.59 sec)
+
+mysql&gt; show tables;
++----------------------------+
+| Tables_in_gestion_bancaire |
++----------------------------+
+| Agence                     |
+| Client                     |
+| Compte                     |
+| Employee                   |
+| Employeur                  |
+| Operation                  |
+| Profil                     |
+| Region                     |
+| TypeCliente                |
++----------------------------+
+9 rows in set (0.33 sec)
+
+mysql&gt; create table TypeCompte (id int(11),
+    -&gt; libelle varchar(25));
+Query OK, 0 rows affected (1.83 sec)
+
+mysql&gt; Show columns from TypeCompte;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| id      | int(11)     | YES  |     | NULL    |       |
+| libelle | varchar(25) | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+2 rows in set (0.31 sec)
+
+mysql&gt; mysql&gt; Create table EmployeeA (idA int(11),
+    -&gt; idE int(11),
+    -&gt; date_d date,
+    -&gt; date_f date,
+    -&gt; contraint pkEmployeeA primary key(idA, idE)
+    -&gt; );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &amp;apos;pkEmployeeA primary key(idA, idE)
+)&amp;apos; at line 5
+mysql&gt; Create table EmplyeeEmployeeA (idA int(11), idE int(11), date_d date, date_f date, constraint pk_EmployeeA primary key(idA, idE));
+Query OK, 0 rows affected (0.81 sec)
+
+mysql&gt; show columns from EmployeeA;
+ERROR 1146 (42S02): Table &amp;apos;gestion_bancaire.EmployeeA&amp;apos; doesn&amp;apos;t exist
+mysql&gt; drop table EmplyeeEmployeeA;
+Query OK, 0 rows affected (0.38 sec)
+
+mysql&gt; Create table EmployeeA (idA int(11), idE int(11), date_d date, date_f date, constraint pk_EmployeeA primary key(idA, idE)); 
+Query OK, 0 rows affected (0.44 sec)
+
+mysql&gt; show columns from EmployeeA;                                 +--------+---------+------+-----+---------+-------+
+| Field  | Type    | Null | Key | Default | Extra |
++--------+---------+------+-----+---------+-------+
+| idA    | int(11) | NO   | PRI | NULL    |       |
+| idE    | int(11) | NO   | PRI | NULL    |       |
+| date_d | date    | YES  |     | NULL    |       |
+| date_f | date    | YES  |     | NULL    |       |
++--------+---------+------+-----+---------+-------+
+4 rows in set (0.05 sec)
+
+mysql&gt; show tables;
++----------------------------+
+| Tables_in_gestion_bancaire |
++----------------------------+
+| Agence                     |
+| Client                     |
+| Compte                     |
+| Employee                   |
+| EmployeeA                  |
+| Employeur                  |
+| Operation                  |
+| Profil                     |
+| Region                     |
+| TypeCliente                |
+| TypeCompte                 |
++----------------------------+
+11 rows in set (0.04 sec)
+
+mysql&gt; mysql&gt; alter table Agence add foreign key(idRegion) references Region(idR);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &amp;apos;talter table Agence add foreign key(idRegion) references Region(idR)&amp;apos; at line 1
+mysql&gt; alter table Agence add foreign key(idRegion) references Region(idR);
+ERROR 1072 (42000): Key column &amp;apos;idRegion&amp;apos; doesn&amp;apos;t exist in table
+mysql&gt; alter table Agence add foreign key(idR) references Region(idR);
+ERROR 1072 (42000): Key column &amp;apos;idR&amp;apos; doesn&amp;apos;t exist in table
+mysql&gt; alter table Agence add idRegion int(11);
+Query OK, 0 rows affected (2.38 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql&gt; alter table Agence add foreign key(idRegion) references Region(idR);
+Query OK, 0 rows affected (1.31 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql&gt; show columns from Agence:
+    -&gt; show columns from Agence;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &amp;apos;:
+show columns from Agence&amp;apos; at line 1
+mysql&gt; show columns from Agence;
+
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| idA      | int(11)     | NO   | PRI | NULL    | auto_increment |
+| NomA     | varchar(30) | YES  |     | NULL    |                |
+| idRegion | int(11)     | YES  | MUL | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+3 rows in set (9.57 sec)
+
+mysql&gt; 
+mysql&gt; alter table Employee add idProfil int(11);
+Query OK, 0 rows affected (2.45 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql&gt; alter table Employee add foreign key(idProfil) references Profil(idP);
+Query OK, 0 rows affected (0.96 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql&gt; show columns from Employee;
++-----------+-------------+------+-----+---------+----------------+
+| Field     | Type        | Null | Key | Default | Extra          |
++-----------+-------------+------+-----+---------+----------------+
+| idE       | int(11)     | NO   | PRI | NULL    | auto_increment |
+| NomE      | varchar(50) | YES  |     | NULL    |                |
+| PrenomE   | varchar(50) | YES  |     | NULL    |                |
+| AdresseE  | varchar(50) | YES  |     | NULL    |                |
+| EmailE    | varchar(50) | YES  |     | NULL    |                |
+| TelE      | int(11)     | YES  |     | NULL    |                |
+| PasswordE | varchar(50) | YES  |     | NULL    |                |
+| idProfil  | int(11)     | YES  | MUL | NULL    |                |
++-----------+-------------+------+-----+---------+----------------+
+8 rows in set (0.05 sec)
+
+mysql&gt; alter table Client add idTypeClient int(11);
+Query OK, 0 rows affected (0.99 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql&gt; alter table Client add foreign key(idTypeClient) references TypeClient(idT);
+ERROR 1215 (HY000): Cannot add foreign key constraint
+mysql&gt; alter table Cliente add idTypeClient int(11);
+ERROR 1146 (42S02): Table &amp;apos;gestion_bancaire.Cliente&amp;apos; doesn&amp;apos;t exist
+mysql&gt; show columns from Cliente;
+ERROR 1146 (42S02): Table &amp;apos;gestion_bancaire.Cliente&amp;apos; doesn&amp;apos;t exist
+mysql&gt; show columns from Client;
++--------------+-------------+------+-----+---------+----------------+
+| Field        | Type        | Null | Key | Default | Extra          |
++--------------+-------------+------+-----+---------+----------------+
+| idCl         | int(11)     | NO   | PRI | NULL    | auto_increment |
+| Nom          | varchar(50) | YES  |     | NULL    |                |
+| Prenom       | varchar(50) | YES  |     | NULL    |                |
+| Adresse      | varchar(50) | YES  |     | NULL    |                |
+| Email        | varchar(50) | YES  |     | NULL    |                |
+| Tel          | int(11)     | YES  |     | NULL    |                |
+| Password     | varchar(12) | YES  |     | NULL    |                |
+| Salaire      | varchar(12) | YES  |     | NULL    |                |
+| idTypeClient | int(11)     | YES  |     | NULL    |                |
++--------------+-------------+------+-----+---------+----------------+
+9 rows in set (0.00 sec)
+
+mysql&gt; alter table Compte add idClient int(11);
+Query OK, 0 rows affected (0.87 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql&gt; alter table Compte add foreign key(idClient) references Client(idCl);
+Query OK, 0 rows affected (1.09 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql&gt; show columns from Compte;
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| idC      | int(11)     | NO   | PRI | NULL    | auto_increment |
+| CleRib   | varchar(50) | YES  |     | NULL    |                |
+| Etat     | varchar(50) | YES  |     | NULL    |                |
+| idClient | int(11)     | YES  | MUL | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+4 rows in set (0.05 sec)
+
+mysql&gt; alter table Operation add idCompte int(11);
+Query OK, 0 rows affected (0.71 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql&gt; alter table Operation add foreign key(idCompte) references Compte(idC);
+Query OK, 0 rows affected (0.99 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql&gt; show columns from Operation;
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| idO      | int(11)     | NO   | PRI | NULL    | auto_increment |
+| Montant  | varchar(50) | YES  |     | NULL    |                |
+| Type     | varchar(50) | YES  |     | NULL    |                |
+| idCompte | int(11)     | YES  | MUL | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+4 rows in set (0.02 sec)
+
+mysql&gt; alter table Client add idEmployeur int(11); 
+Query OK, 0 rows affected (0.63 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql&gt; alter table Client add foreign key(idEmployeur) references Compte(numId);
+ERROR 1215 (HY000): Cannot add foreign key constraint
+mysql&gt; show columns from Client;
++--------------+-------------+------+-----+---------+----------------+
+| Field        | Type        | Null | Key | Default | Extra          |
++--------------+-------------+------+-----+---------+----------------+
+| idCl         | int(11)     | NO   | PRI | NULL    | auto_increment |
+| Nom          | varchar(50) | YES  |     | NULL    |                |
+| Prenom       | varchar(50) | YES  |     | NULL    |                |
+| Adresse      | varchar(50) | YES  |     | NULL    |                |
+| Email        | varchar(50) | YES  |     | NULL    |                |
+| Tel          | int(11)     | YES  |     | NULL    |                |
+| Password     | varchar(12) | YES  |     | NULL    |                |
+| Salaire      | varchar(12) | YES  |     | NULL    |                |
+| idTypeClient | int(11)     | YES  |     | NULL    |                |
+| idEmployeur  | int(11)     | YES  |     | NULL    |                |
++--------------+-------------+------+-----+---------+----------------+
+10 rows in set (0.00 sec)
+
+mysql&gt; show tables;
++----------------------------+
+| Tables_in_gestion_bancaire |
++----------------------------+
+| Agence                     |
+| Client                     |
+| Compte                     |
+| Employee                   |
+| EmployeeA                  |
+| Employeur                  |
+| Operation                  |
+| Profil                     |
+| Region                     |
+| TypeCliente                |
+| TypeCompte                 |
++----------------------------+
+11 rows in set (0.00 sec)
+
+mysql&gt; </pre><p style="margin-bottom: 0cm; line-height: 100%">
+<br/>
+
+</p>
+</body>
+</html>
